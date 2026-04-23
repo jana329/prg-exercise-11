@@ -33,6 +33,17 @@ class StudentsGrades:
 
         return nalezene_indexy
 
+    def get_sorted(self):
+        kopie_skore = self.scores[:]
+        n = len(kopie_skore)
+
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if kopie_skore[j] > kopie_skore[j + 1]:
+                    kopie_skore[j], kopie_skore[j + 1] = kopie_skore[j + 1], kopie_skore[j]
+
+        return kopie_skore
+
 
 
 
@@ -48,3 +59,6 @@ if __name__ == "__main__":
 
     print(results.find(100))
     print(results.find(67))
+
+    print(results.get_sorted())
+    print(results.scores)
