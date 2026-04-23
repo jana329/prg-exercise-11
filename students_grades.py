@@ -24,6 +24,18 @@ class StudentsGrades:
         else:
             return "F"
 
+    def find(self, hledane_body):
+        nalezene_indexy = []
+
+        for i in range(len(self.scores)):
+            if self.scores[i] == hledane_body:
+                nalezene_indexy.append(i)
+
+        return nalezene_indexy
+
+
+
+
 if __name__ == "__main__":
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
 
@@ -33,3 +45,6 @@ if __name__ == "__main__":
 
     print(f"{results.get_grade(2)}")
     print(f"{results.get_grade(7)}")
+
+    print(results.find(100))
+    print(results.find(67))
