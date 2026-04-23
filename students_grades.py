@@ -1,3 +1,5 @@
+from sorting import random_numbers
+
 class StudentsGrades:
     def __init__(self, scores):
         self.scores = scores
@@ -44,6 +46,25 @@ class StudentsGrades:
 
         return kopie_skore
 
+def main():
+    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+
+    print(f"počet studentů, kteří psali test: {results.count()}")
+
+    for i in range(results.count()):
+        body = results.get_by_index(i)
+        znamka = results.get_grade(i)
+
+        print(f"Student{i}:  {body} points - {znamka}")
+        print("--------------------------------------------------")
+        print(f"indexy studentu se 100 body: {results.find(100)}")
+        print("--------------------------------------------------")
+        print(f"seřazené výsledky: {results.get_sorted()}")
+        print("--------------------------------------------------")
+        print("test na nahodnych datech:")
+        random_results = StudentsGrades(random_numbers(30, 0, 100))
+        print(f"pocet studentu - nahodny: {random_results.count()}")
+        print(f"seřazené náhodné výsledky: {random_results.get_sorted()}")
 
 
 
@@ -62,3 +83,5 @@ if __name__ == "__main__":
 
     print(results.get_sorted())
     print(results.scores)
+
+    main()
